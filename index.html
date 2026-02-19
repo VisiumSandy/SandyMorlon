@@ -1,0 +1,1003 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sandy Morlon - Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f8f9fa;
+            color: #1a1a1a;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        header {
+            background: white;
+            box-shadow: 0 2px 20px rgba(38, 97, 228, 0.08);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            animation: slideDown 0.6s ease;
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: #1a1a1a;
+        }
+
+        .logo span {
+            color: #2661e4;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #1a1a1a;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #2661e4;
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #2661e4;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 100px 40px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .hero-content {
+            animation: fadeInLeft 0.8s ease;
+        }
+
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 .name {
+            color: #2661e4;
+        }
+
+        .hero .subtitle {
+            font-size: 1.3rem;
+            color: #666;
+            margin-bottom: 30px;
+            font-weight: 400;
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 40px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+        }
+
+        .btn {
+            padding: 15px 35px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-block;
+            cursor: pointer;
+            border: none;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: #2661e4;
+            color: white;
+            box-shadow: 0 4px 15px rgba(38, 97, 228, 0.3);
+        }
+
+        .btn-primary:hover {
+            background: #1d4bb8;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(38, 97, 228, 0.4);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: #2661e4;
+            border: 2px solid #2661e4;
+        }
+
+        .btn-secondary:hover {
+            background: #2661e4;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .hero-image {
+            position: relative;
+            animation: fadeInRight 0.8s ease;
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .image-wrapper {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(38, 97, 228, 0.2);
+        }
+
+        .image-wrapper img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .floating-card {
+            position: absolute;
+            background: white;
+            padding: 20px 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .card-top-left {
+            top: 20px;
+            left: -30px;
+            animation-delay: 0s;
+        }
+
+        .card-bottom-right {
+            bottom: 20px;
+            right: -30px;
+            animation-delay: 1.5s;
+        }
+
+        .floating-card .number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #2661e4;
+            margin-bottom: 5px;
+        }
+
+        .floating-card .label {
+            font-size: 0.9rem;
+            color: #666;
+            font-weight: 500;
+        }
+
+        /* Section Styles */
+        section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 40px;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .section-header.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            color: #1a1a1a;
+        }
+
+        .section-header .underline {
+            width: 80px;
+            height: 4px;
+            background: #2661e4;
+            margin: 0 auto;
+            border-radius: 2px;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .skill-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .skill-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .skill-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(38, 97, 228, 0.15);
+        }
+
+        .skill-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #2661e4 0%, #4a89ff 100%);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 1.8rem;
+        }
+
+        .skill-card h3 {
+            font-size: 1.3rem;
+            color: #1a1a1a;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .skill-card p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        /* Experience Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 50px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(180deg, #2661e4 0%, #4a89ff 100%);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 50px;
+            opacity: 0;
+            transform: translateX(-30px);
+            transition: all 0.6s ease;
+        }
+
+        .timeline-item.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -56px;
+            top: 5px;
+            width: 15px;
+            height: 15px;
+            background: #2661e4;
+            border-radius: 50%;
+            border: 4px solid white;
+            box-shadow: 0 0 0 3px #2661e4;
+        }
+
+        .timeline-content {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .timeline-content:hover {
+            box-shadow: 0 10px 30px rgba(38, 97, 228, 0.15);
+            transform: translateX(10px);
+        }
+
+        .timeline-year {
+            display: inline-block;
+            background: #2661e4;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .timeline-content h3 {
+            font-size: 1.5rem;
+            color: #1a1a1a;
+            margin-bottom: 5px;
+            font-weight: 700;
+        }
+
+        .timeline-content .company {
+            color: #2661e4;
+            font-weight: 600;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .timeline-content ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .timeline-content li {
+            padding-left: 25px;
+            margin: 8px 0;
+            color: #555;
+            position: relative;
+        }
+
+        .timeline-content li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: #2661e4;
+            font-weight: bold;
+        }
+
+        /* Education Section */
+        .education-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 30px;
+        }
+
+        .education-card {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            border-left: 5px solid #2661e4;
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .education-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .education-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(38, 97, 228, 0.15);
+        }
+
+        .education-year {
+            color: #2661e4;
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+
+        .education-card h3 {
+            font-size: 1.4rem;
+            color: #1a1a1a;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .education-card .school {
+            color: #666;
+            font-size: 1rem;
+            margin-bottom: 15px;
+        }
+
+        .education-card .details {
+            color: #555;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background: linear-gradient(135deg, #2661e4 0%, #4a89ff 100%);
+            color: white;
+            border-radius: 20px;
+            padding: 80px 60px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 300px;
+            height: 300px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .contact-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+
+        .contact-section p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 15px 30px;
+            border-radius: 50px;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-5px);
+        }
+
+        .contact-item svg {
+            width: 24px;
+            height: 24px;
+            fill: white;
+        }
+
+        /* Footer */
+        footer {
+            background: #1a1a1a;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 80px;
+        }
+
+        footer p {
+            font-size: 0.95rem;
+            opacity: 0.7;
+        }
+
+        /* Passions Section */
+        .passions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+        }
+
+        .passion-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: scale(0.9);
+        }
+
+        .passion-card.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .passion-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 40px rgba(38, 97, 228, 0.15);
+        }
+
+        .passion-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .passion-card h3 {
+            font-size: 1.2rem;
+            color: #1a1a1a;
+            font-weight: 600;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero {
+                grid-template-columns: 1fr;
+                padding: 60px 20px;
+                gap: 40px;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            nav {
+                padding: 20px;
+            }
+
+            .nav-links {
+                gap: 20px;
+                font-size: 0.9rem;
+            }
+
+            section {
+                padding: 60px 20px;
+            }
+
+            .section-header h2 {
+                font-size: 2rem;
+            }
+
+            .timeline {
+                padding-left: 30px;
+            }
+
+            .timeline-item::before {
+                left: -36px;
+            }
+
+            .education-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .floating-card {
+                display: none;
+            }
+
+            .contact-section {
+                padding: 60px 30px;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
+
+        /* Scroll Progress Bar */
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 4px;
+            background: #2661e4;
+            z-index: 9999;
+            transform-origin: left;
+            transition: transform 0.1s ease;
+        }
+    </style>
+</head>
+<body>
+    <!-- Progress Bar -->
+    <div class="progress-bar" id="progressBar"></div>
+
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">Sandy <span>MORLON</span></div>
+            <ul class="nav-links">
+                <li><a href="#accueil">Accueil</a></li>
+                <li><a href="#competences">Compétences</a></li>
+                <li><a href="#experiences">Expériences</a></li>
+                <li><a href="#formation">Formation</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="accueil" class="hero">
+        <div class="hero-content">
+            <h1>Bonjour, je suis<br><span class="name">Sandy MORLON</span></h1>
+            <p class="subtitle">Digital Entrepreneur • Developer • Designer</p>
+            <p class="hero-description">
+                Passionné par l'écosystème digital et l'entrepreneuriat. 
+                Je développe mes compétences dans l'informatique, la finance, 
+                les cryptomonnaies et l'e-commerce, avec une forte sensibilité 
+                pour le design et la création visuelle.
+            </p>
+            <div class="cta-buttons">
+                <a href="#contact" class="btn btn-primary">Me contacter</a>
+                <a href="#experiences" class="btn btn-secondary">Voir mon parcours</a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <div class="image-wrapper">
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='500' height='600'%3E%3Crect width='500' height='600' fill='%232661e4'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-size='60' fill='white'%3ESandy M.%3C/text%3E%3C/svg%3E" alt="Sandy Morlon">
+            </div>
+            <div class="floating-card card-top-left">
+                <div class="number">5+</div>
+                <div class="label">Projets réalisés</div>
+            </div>
+            <div class="floating-card card-bottom-right">
+                <div class="number">19</div>
+                <div class="label">Ans d'expérience</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="competences">
+        <div class="section-header">
+            <h2>Compétences</h2>
+            <div class="underline"></div>
+        </div>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <div class="skill-icon">💻</div>
+                <h3>Informatique</h3>
+                <p>Développement et maintenance de systèmes informatiques</p>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon">🎨</div>
+                <h3>Web Design</h3>
+                <p>Création d'interfaces modernes et intuitives</p>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon">💬</div>
+                <h3>Communication</h3>
+                <p>Stratégie de communication digitale</p>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon">🎯</div>
+                <h3>Branding</h3>
+                <p>Construction d'identité de marque forte</p>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon">📈</div>
+                <h3>Marketing</h3>
+                <p>Marketing digital et growth hacking</p>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon">🛒</div>
+                <h3>E-commerce</h3>
+                <p>Gestion complète de boutiques en ligne</p>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon">👥</div>
+                <h3>Communauté</h3>
+                <p>Gestion et animation de communautés</p>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon">📱</div>
+                <h3>QR Code</h3>
+                <p>Intégration de solutions QR innovantes</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experiences">
+        <div class="section-header">
+            <h2>Expériences professionnelles</h2>
+            <div class="underline"></div>
+        </div>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <span class="timeline-year">2026</span>
+                    <h3>CEO Tradingframe.fr</h3>
+                    <span class="company">Nevers (58)</span>
+                    <ul>
+                        <li>Développement d'une marque digitale</li>
+                        <li>Branding & identité visuelle</li>
+                        <li>Gestion communauté</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <span class="timeline-year">2026</span>
+                    <h3>Stagiaire NeversLAN</h3>
+                    <span class="company">Nevers (58)</span>
+                    <ul>
+                        <li>Montage, réparation et dépannage de PC</li>
+                        <li>Vente, SAV et maintenance technique</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <span class="timeline-year">2024</span>
+                    <h3>CEO Moneywave.fr</h3>
+                    <span class="company">Nevers (58)</span>
+                    <ul>
+                        <li>Création et gestion d'une marque de vêtements</li>
+                        <li>Gestion du site e-commerce</li>
+                        <li>Marketing digital & stratégie réseaux sociaux</li>
+                        <li>Gestion des commandes et service client</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <span class="timeline-year">2023</span>
+                    <h3>Stagiaire BUT</h3>
+                    <span class="company">Nevers (58)</span>
+                    <ul>
+                        <li>Gestion des stocks, mise en rayon</li>
+                        <li>Facing et relation clientèle</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <span class="timeline-year">2022</span>
+                    <h3>Stagiaire Plomberie GONIN</h3>
+                    <span class="company">Nevers (58)</span>
+                    <ul>
+                        <li>Pose placo, plomberie sanitaire</li>
+                        <li>Maniement d'outils et dépannage</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <span class="timeline-year">2022</span>
+                    <h3>Stagiaire Facteur Cheval</h3>
+                    <span class="company">Nevers (58)</span>
+                    <ul>
+                        <li>Accueil client, prise en charge des demandes</li>
+                        <li>Encaissement et livraison</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="formation">
+        <div class="section-header">
+            <h2>Parcours scolaire</h2>
+            <div class="underline"></div>
+        </div>
+        <div class="education-grid">
+            <div class="education-card">
+                <div class="education-year">2021 – 2025</div>
+                <h3>Baccalauréat Systèmes Informatiques</h3>
+                <div class="school">CSND Saint Joseph (Nevers 58)</div>
+                <div class="details">
+                    Spécialités validées : Économie, EPS, Enseignement professionnel
+                </div>
+            </div>
+
+            <div class="education-card">
+                <div class="education-year">2020 – 2021</div>
+                <h3>Brevet des collèges</h3>
+                <div class="school">CSND Saint Joseph (Nevers 58)</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Passions Section -->
+    <section id="passions">
+        <div class="section-header">
+            <h2>Passions et activités</h2>
+            <div class="underline"></div>
+        </div>
+        <div class="passions-grid">
+            <div class="passion-card">
+                <div class="passion-icon">✈️</div>
+                <h3>Voyages</h3>
+            </div>
+            <div class="passion-card">
+                <div class="passion-icon">💼</div>
+                <h3>Entreprenariat</h3>
+            </div>
+            <div class="passion-card">
+                <div class="passion-icon">💻</div>
+                <h3>Informatique</h3>
+            </div>
+            <div class="passion-card">
+                <div class="passion-icon">🎨</div>
+                <h3>Graphisme</h3>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="contact-section">
+            <h2>Travaillons ensemble</h2>
+            <p>Vous avez un projet ? N'hésitez pas à me contacter !</p>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                    <span>+33 7 78 74 90 79</span>
+                </div>
+                <div class="contact-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                    <span>sandymrlnpro@gmail.com</span>
+                </div>
+                <div class="contact-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                    <span>Nevers, France</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 Sandy Morlon - Tous droits réservés</p>
+    </footer>
+
+    <script>
+        // Scroll Progress Bar
+        window.addEventListener('scroll', () => {
+            const scrollProgress = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+            document.getElementById('progressBar').style.transform = `scaleX(${scrollProgress / 100})`;
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all animated elements
+        document.querySelectorAll('.section-header, .skill-card, .timeline-item, .education-card, .passion-card').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add stagger delay to skill cards
+        document.querySelectorAll('.skill-card').forEach((card, index) => {
+            card.style.transitionDelay = `${index * 0.1}s`;
+        });
+
+        // Add stagger delay to timeline items
+        document.querySelectorAll('.timeline-item').forEach((item, index) => {
+            item.style.transitionDelay = `${index * 0.15}s`;
+        });
+
+        // Add stagger delay to passion cards
+        document.querySelectorAll('.passion-card').forEach((card, index) => {
+            card.style.transitionDelay = `${index * 0.1}s`;
+        });
+    </script>
+</body>
+</html>
